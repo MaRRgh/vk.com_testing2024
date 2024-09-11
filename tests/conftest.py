@@ -1,8 +1,8 @@
 import pytest
-from selenium import webdriver
+from pages.vk_auth import VKLogin
 
 @pytest.fixture()
-def driver():
-    driver = webdriver.Chrome()
-    driver.maximize_window()
-    yield driver
+def vk_login():
+    vk = VKLogin()
+    yield vk
+    vk.exit()
